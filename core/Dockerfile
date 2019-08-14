@@ -1,5 +1,5 @@
 # This image is the base image for all s2i configurable container images.
-FROM centos:7
+FROM centos:7.6.1810
 
 ENV SUMMARY="Base image which allows using of source-to-image."	\
     DESCRIPTION="The s2i-core image provides any images layered on top of it \

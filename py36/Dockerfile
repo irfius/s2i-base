@@ -10,9 +10,9 @@ functionality."
 LABEL summary="$SUMMARY" \
       description="$DESCRIPTION" \
       io.k8s.description="$DESCRIPTION" \
-      io.k8s.display-name="s2i python36" \
-      com.redhat.component="s2i-python36-container" \
-      name="irfius/s2i-python36-centos7" \
+      io.k8s.display-name="s2i py36" \
+      com.redhat.component="s2i-py36-container" \
+      name="irfius/s2i-py36-centos7" \
       version="1" \
       maintainer="Irfius <irfius@tuta.io>"
 
