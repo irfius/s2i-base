@@ -1,5 +1,5 @@
 # This image is the base image for all OpenShift v3 language container images.
-FROM centos/s2i-core-centos7
+FROM centos/s2i-core-centos7:1
 
 ENV SUMMARY="Base python 3.6 image with essential libraries and tools used as a base for \
 python applications." \
