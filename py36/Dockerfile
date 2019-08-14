@@ -19,7 +19,8 @@ LABEL summary="$SUMMARY" \
 # This is the list of basic dependencies that all language container image can
 # consume.
 RUN yum install -y centos-release-scl epel-release && \
-  INSTALL_PKGS="python36 python36-pip python36-devel" && \
-  yum install -y --setopt=tsflags=nodocs $INSTALL_PKGS && \
-  rpm -V $INSTALL_PKGS && \
-  yum -y clean all --enablerepo='*'
+    yum -y update && \
+    INSTALL_PKGS="python36 python36-pip python36-devel" && \
+    yum install -y --setopt=tsflags=nodocs $INSTALL_PKGS && \
+    rpm -V $INSTALL_PKGS && \
+    yum -y clean all --enablerepo='*'
