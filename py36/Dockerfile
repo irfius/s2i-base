@@ -22,5 +22,4 @@ RUN yum install -y centos-release-scl epel-release && \
   INSTALL_PKGS="python36 python36-pip python36-devel" && \
   yum install -y --setopt=tsflags=nodocs $INSTALL_PKGS && \
   rpm -V $INSTALL_PKGS && \
-  yum -y clean all --enablerepo='*' && \
-  pip3 install -U pip
+  yum -y clean all --enablerepo='*'
