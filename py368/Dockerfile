@@ -11,15 +11,14 @@ LABEL summary="$SUMMARY" \
       description="$DESCRIPTION" \
       io.k8s.description="$DESCRIPTION" \
       io.k8s.display-name="s2i py36" \
-      com.redhat.component="s2i-py36-container" \
-      name="irfius/s2i-py36-centos7" \
+      com.redhat.component="s2i-py368-container" \
+      name="irfius/s2i-py368-centos7" \
       version="1" \
       maintainer="Irfius <irfius@tuta.io>"
 
 # This is the list of basic dependencies that all language container image can
 # consume.
-RUN yum -y update && \
-    yum install -y centos-release-scl epel-release && \
+RUN yum install -y --setopt=tsflags=nodocs epel-release && \
     yum -y update && \
     INSTALL_PKGS="python36 python36-pip python36-devel" && \
     yum install -y --setopt=tsflags=nodocs $INSTALL_PKGS && \
