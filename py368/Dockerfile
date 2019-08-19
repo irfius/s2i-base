@@ -16,6 +16,8 @@ LABEL summary="$SUMMARY" \
       version="1" \
       maintainer="Irfius <irfius@tuta.io>"
 
+COPY ./root/ /
+
 # This is the list of basic dependencies that all language container image can
 # consume.
 RUN yum install -y --setopt=tsflags=nodocs epel-release && \
@@ -26,3 +28,6 @@ RUN yum install -y --setopt=tsflags=nodocs epel-release && \
     yum -y clean all --enablerepo='*' && \
     chown -R 0:0 /opt/* && \
     pip3 install -U pip
+
+ENTRYPOINT ["/container-entrypoint"]
+CMD ["/usage"]
