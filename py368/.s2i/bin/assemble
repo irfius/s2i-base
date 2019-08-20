@@ -1,4 +1,4 @@
 #!/bin/bash
 
 # set permissions for any installed artifacts
-fix-permissions /opt/app-root
+# fix-permissions /opt/app-root

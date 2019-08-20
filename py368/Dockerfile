@@ -19,11 +19,11 @@ LABEL summary="$SUMMARY" \
       maintainer="Irfius <irfius@tuta.io>"
 
 COPY ./.s2i/bin/ $STI_SCRIPTS_PATH
-COPY ./root/ /
 
 # This is the list of basic dependencies that all language container image can
 # consume.
-RUN yum install -y --setopt=tsflags=nodocs epel-release && \
+RUN rpm --import http://dl.fedoraproject.org/pub/epel/RPM-GPG-KEY-EPEL-7 && \
+    yum -y install --setopt=tsflags=nodocs epel-release && \
     yum -y update && \
     INSTALL_PKGS="python36 python36-pip python36-devel" && \
     yum install -y --setopt=tsflags=nodocs $INSTALL_PKGS && \
@@ -31,7 +31,5 @@ RUN yum install -y --setopt=tsflags=nodocs epel-release && \
     yum -y clean all --enablerepo='*' && \
     chown -R 0:0 /opt/* && \
     pip3 install -U pip
-
-USER 1001
 
 CMD $STI_SCRIPTS_PATH/usage
