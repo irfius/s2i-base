@@ -19,7 +19,7 @@ LABEL summary="$SUMMARY" \
       maintainer="Irfius <irfius@tuta.io>" \
       io.openshift.s2i.scripts-url="image:///usr/libexec/s2i"
 
-COPY ./.s2i/bin/ $STI_SCRIPTS_PATH
+COPY ./s2i/bin/ $STI_SCRIPTS_PATH
 
 # This is the list of basic dependencies that all language container image can
 # consume.
