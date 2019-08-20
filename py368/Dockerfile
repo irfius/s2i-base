@@ -32,4 +32,4 @@ RUN rpm --import http://dl.fedoraproject.org/pub/epel/RPM-GPG-KEY-EPEL-7 && \
     chown -R 0:0 /opt/* && \
     pip3 install -U pip
 
-CMD $STI_SCRIPTS_PATH/usage
+CMD ["/usr/libexec/s2i/usage"]
