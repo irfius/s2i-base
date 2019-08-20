@@ -16,7 +16,8 @@ LABEL summary="$SUMMARY" \
       com.redhat.component="s2i-py368-container" \
       name="irfius/s2i-py368-centos7" \
       version="1" \
-      maintainer="Irfius <irfius@tuta.io>"
+      maintainer="Irfius <irfius@tuta.io>" \
+      io.openshift.s2i.scripts-url="image:///usr/libexec/s2i"
 
 COPY ./.s2i/bin/ $STI_SCRIPTS_PATH
 
