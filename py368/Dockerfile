@@ -5,7 +5,9 @@ ENV SUMMARY="Base python 3.6 image with essential libraries and tools used as a 
 python applications." \
     DESCRIPTION="The s2i-python36 image, being built upon s2i-core, provides any \
 images layered on top of it with all the tools needed to use source-to-image \
-functionality."
+functionality." \
+    LC_ALL=en_US.UTF-8 \
+    LANG=en_US.UTF-8 
 
 LABEL summary="$SUMMARY" \
       description="$DESCRIPTION" \
@@ -16,6 +18,7 @@ LABEL summary="$SUMMARY" \
       version="1" \
       maintainer="Irfius <irfius@tuta.io>"
 
+COPY ./.s2i/bin/ $STI_SCRIPTS_PATH
 COPY ./root/ /
 
 # This is the list of basic dependencies that all language container image can
@@ -29,5 +32,6 @@ RUN yum install -y --setopt=tsflags=nodocs epel-release && \
     chown -R 0:0 /opt/* && \
     pip3 install -U pip
 
-ENTRYPOINT ["/container-entrypoint"]
-CMD ["/usage"]
+USER 1001
+
+CMD $STI_SCRIPTS_PATH/usage
